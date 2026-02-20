@@ -5,6 +5,11 @@
 #include <random>
 #include <iomanip>
 using namespace std; 
+struct Metrics
+{
+    long long comparisons =0;
+    long long swaps =0;
+};
 
 void generateRandomArray(vector<int>& arr, int size){
     random_device rd;
