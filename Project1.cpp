@@ -7,7 +7,13 @@
 using namespace std; 
 
 void generateRandomArray(vector<int>& arr, int size){
-    
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dis(1,1000000);
+    arr.clear();
+    for (int i = 0; i < size; ++i) {
+        arr.push_back(dis(gen));
+    }
 }
 void insertionSort(vector<int>& arr){
     int n = arr.size();
