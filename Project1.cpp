@@ -6,6 +6,9 @@
 #include <iomanip>
 using namespace std; 
 
+void generateRandomArray(vector<int>& arr, int size){
+    
+}
 void insertionSort(vector<int>& arr){
     int n = arr.size();
     for (int i = 1; i < n; ++i) {
