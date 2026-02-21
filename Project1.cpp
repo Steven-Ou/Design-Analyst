@@ -77,19 +77,22 @@ void mergeSort(vector<int> &arr, int l, int r)
     }
 }
 // regular partition
-int partition(vector<int> &arr, int low, int high)
+int partition(vector<int> &arr, int low, int high, Metrics& m)
 {
     int pivot = arr[high];
     int i = (low - 1);
     for (int j = low; j <= high - 1; j++)
     {
+        m.comparisons++;
         if (arr[j] < pivot)
         {
             i++;
             swap(arr[i], arr[j]);
+            m.swaps++;
         }
     }
     swap(arr[i + 1], arr[high]);
+    m.swaps++;
     return i + 1;
 }
 int main()
