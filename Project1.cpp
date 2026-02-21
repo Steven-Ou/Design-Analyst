@@ -98,11 +98,22 @@ int partition(vector<int> &arr, int low, int high, Metrics &m)
     return i + 1;
 }
 
-void quickSort(vector<int> &arr, int low, int high, Metrics &m) {
-    if (low < high) {
+void quickSort(vector<int> &arr, int low, int high, Metrics &m)
+{
+    if (low < high)
+    {
         int pi = partition(arr, low, high, m);
-        quickSortBasic(arr, low, pi - 1, m);
-        quickSortBasic(arr, pi + 1, high, m);
+        quickSort(arr, low, pi - 1, m);
+        quickSort(arr, pi + 1, high, m);
+    }
+}
+void protectedQuickSort(vector<int> &arr, int low, int high, Metrics &m)
+{
+    if (low < high)
+    {
+        int pi = Protectedpartition(arr, low, high, m);
+        protectedQuickSort(arr, low, pi - 1, m);
+        protectedQuickSort(arr, pi + 1, high, m);
     }
 }
 // randomized to prevent worst case O(n^2)
