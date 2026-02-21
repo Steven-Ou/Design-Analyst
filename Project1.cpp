@@ -97,6 +97,14 @@ int partition(vector<int> &arr, int low, int high, Metrics &m)
     m.swaps++;
     return i + 1;
 }
+
+void quickSort(vector<int> &arr, int low, int high, Metrics &m) {
+    if (low < high) {
+        int pi = partition(arr, low, high, m);
+        quickSortBasic(arr, low, pi - 1, m);
+        quickSortBasic(arr, pi + 1, high, m);
+    }
+}
 // randomized to prevent worst case O(n^2)
 int Protectedpartition(vector<int> &arr, int low, int high, Metrics &m)
 {
