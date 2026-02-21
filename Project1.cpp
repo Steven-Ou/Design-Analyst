@@ -129,6 +129,18 @@ void heapify(vector<int> &arr, int n, int i, Metrics &m)
         heapify(arr, n, largest, m);
     }
 }
+void heapSort(vector<int> &arr, Metrics &m)
+{
+    int n = arr.size();
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i, m);
+    for (int i = n - 1; i > 0; i--)
+    {
+        swap(arr[0], arr[i]);
+        m.swaps++;
+        heapify(arr, i, 0, m);
+    }
+}
 int main()
 {
 }
