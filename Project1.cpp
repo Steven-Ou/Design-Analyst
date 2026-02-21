@@ -76,7 +76,7 @@ void mergeSort(vector<int> &arr, int l, int r)
         merge(arr, l, m, r);
     }
 }
-// regular partition
+// regular partition - using fixed pivot
 int partition(vector<int> &arr, int low, int high, Metrics& m)
 {
     int pivot = arr[high];
