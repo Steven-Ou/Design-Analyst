@@ -95,7 +95,7 @@ int partition(vector<int> &arr, int low, int high, Metrics& m)
     m.swaps++;
     return i + 1;
 }
-
+//randomized to prevent worst case O(n^2)
 int Protectedpartition(vector<int>& arr, int low, int high , Metrics& m ){
     int randomIdx = low + rand() %(high-low+1);
     swap(arr[randomIdx], arr[high]);
