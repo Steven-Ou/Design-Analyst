@@ -162,4 +162,8 @@ void heapSort(vector<int> &arr, Metrics &m)
 }
 int main()
 {
+    const int numRuns =100;
+    const int arraySize= 10000;
+
+    
 }
