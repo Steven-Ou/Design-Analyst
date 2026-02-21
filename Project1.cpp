@@ -38,7 +38,9 @@ void insertionSort(vector<int> &arr, Metrics &m)
                 arr[j + 1] = arr[j];
                 m.swaps++;
                 j = j - 1;
-            }else break;
+            }
+            else
+                break;
         }
         arr[j + 1] = key;
     }
@@ -77,7 +79,7 @@ void mergeSort(vector<int> &arr, int l, int r)
     }
 }
 // regular partition - using fixed pivot
-int partition(vector<int> &arr, int low, int high, Metrics& m)
+int partition(vector<int> &arr, int low, int high, Metrics &m)
 {
     int pivot = arr[high];
     int i = (low - 1);
@@ -95,12 +97,37 @@ int partition(vector<int> &arr, int low, int high, Metrics& m)
     m.swaps++;
     return i + 1;
 }
-//randomized to prevent worst case O(n^2)
-int Protectedpartition(vector<int>& arr, int low, int high , Metrics& m ){
-    int randomIdx = low + rand() %(high-low+1);
+// randomized to prevent worst case O(n^2)
+int Protectedpartition(vector<int> &arr, int low, int high, Metrics &m)
+{
+    int randomIdx = low + rand() % (high - low + 1);
     swap(arr[randomIdx], arr[high]);
     m.swaps++;
-    return Protectedpartition(arr, low, high,m); 
+    return Protectedpartition(arr, low, high, m);
+}
+void heapify(vector<int> &arr, int n, int i, Metrics &m)
+{
+    int largest = i;
+    int l = 2 * i + 1;
+    int r = 2 * i + 2;
+    if (l < n)
+    {
+        m.comparisons++;
+        if (arr[l] > arr[largest])
+            largest = l;
+    }
+    if (r < n)
+    {
+        m.comparisons++;
+        if (arr[r] > arr[largest])
+            largest = r;
+    }
+    if (largest != i)
+    {
+        swap(arr[i], arr[largest]);
+        m.swaps++;
+        heapify(arr, n, largest, m);
+    }
 }
 int main()
 {
