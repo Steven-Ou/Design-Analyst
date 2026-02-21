@@ -165,5 +165,6 @@ int main()
     const int numRuns =100;
     const int arraySize= 10000;
 
-    
+    //Accumulators for average
+    Metrics totalInsert, totalHeap, totalQSBasic, totalQSProt;
 }
