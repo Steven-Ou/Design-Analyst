@@ -233,5 +233,10 @@ int main()
         cout << "  Time:        " << totalTimeQSBasic / numRuns << " seconds" << endl;
         cout << "  Comparisons: " << totalQSBasic.comparisons / numRuns << endl;
         cout << "  Swaps:       " << totalQSBasic.swaps / numRuns << endl;
+
+        cout << "\nQuickSort (Protected):" << endl;
+        cout << "  Time:        " << totalTimeQSProt / numRuns << " seconds" << endl;
+        cout << "  Comparisons: " << totalQSProt.comparisons / numRuns << endl;
+        cout << "  Swaps:       " << totalQSProt.swaps / numRuns << endl;
     }
 }
