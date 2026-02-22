@@ -217,5 +217,7 @@ int main()
         totalTimeQSProt += chrono::duration<double>(end - start).count();
         totalQSProt.comparisons += qsProtM.comparisons;
         totalQSProt.swaps += qsProtM.swaps;
+
+        cout << "\n=== FINAL AVERAGES OVER " << numRuns << " RUNS ===" << endl;
     }
 }
