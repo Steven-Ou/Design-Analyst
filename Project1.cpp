@@ -207,7 +207,7 @@ int main()
         totalHeap.comparisons += runM.comparisons;
         totalHeap.swaps += runM.swaps;
 
-
+        //Protected quicksort test
         testArr = baseArray;
         Metrics qsProtM; // Fresh struct
         start = chrono::high_resolution_clock::now();
