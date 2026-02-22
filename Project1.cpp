@@ -223,5 +223,10 @@ int main()
         cout << "  Time:        " << totalTimeInsert / numRuns << " seconds" << endl;
         cout << "  Comparisons: " << totalInsert.comparisons / numRuns << endl;
         cout << "  Swaps:       " << totalInsert.swaps / numRuns << endl;
+
+        cout << "\nHeap Sort:" << endl;
+        cout << "  Time:        " << totalTimeHeap / numRuns << " seconds" << endl;
+        cout << "  Comparisons: " << totalHeap.comparisons / numRuns << endl;
+        cout << "  Swaps:       " << totalHeap.swaps / numRuns << end
     }
 }
