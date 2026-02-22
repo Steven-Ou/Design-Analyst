@@ -227,6 +227,11 @@ int main()
         cout << "\nHeap Sort:" << endl;
         cout << "  Time:        " << totalTimeHeap / numRuns << " seconds" << endl;
         cout << "  Comparisons: " << totalHeap.comparisons / numRuns << endl;
-        cout << "  Swaps:       " << totalHeap.swaps / numRuns << end
+        cout << "  Swaps:       " << totalHeap.swaps / numRuns << endl;
+
+        cout << "\nQuickSort (Basic):" << endl;
+        cout << "  Time:        " << totalTimeQSBasic / numRuns << " seconds" << endl;
+        cout << "  Comparisons: " << totalQSBasic.comparisons / numRuns << endl;
+        cout << "  Swaps:       " << totalQSBasic.swaps / numRuns << endl;
     }
 }
