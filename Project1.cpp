@@ -182,5 +182,15 @@ int main()
         totalTimeInsert += chrono::duration<double>(end - start).count();
         totalInsert.comparisons += runM.comparisons;
         totalInsert.swaps += runM.swaps;
+
+        //Heap Sort 
+        testArr = baseArray;
+        runM = {0, 0};
+        start = chrono::high_resolution_clock::now();
+        heapSort(testArr, runM);
+        end = chrono::high_resolution_clock::now();
+        totalTimeHeap += chrono::duration<double>(end - start).count();
+        totalHeap.comparisons += runM.comparisons;
+        totalHeap.swaps += runM.swaps;
     }
 }
