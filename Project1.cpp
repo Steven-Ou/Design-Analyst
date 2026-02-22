@@ -105,15 +105,6 @@ int Protectedpartition(vector<int> &arr, int low, int high, Metrics &m)
     m.swaps++;
     return partition(arr, low, high, m);
 }
-void quickSort(vector<int> &arr, int low, int high, Metrics &m)
-{
-    if (low < high)
-    {
-        int pi = partition(arr, low, high, m);
-        quickSort(arr, low, pi - 1, m);
-        quickSort(arr, pi + 1, high, m);
-    }
-}
 void protectedQuickSort(vector<int> &arr, int low, int high, Metrics &m)
 {
     if (low < high)
@@ -123,6 +114,16 @@ void protectedQuickSort(vector<int> &arr, int low, int high, Metrics &m)
         protectedQuickSort(arr, pi + 1, high, m);
     }
 }
+void quickSort(vector<int> &arr, int low, int high, Metrics &m)
+{
+    if (low < high)
+    {
+        int pi = partition(arr, low, high, m);
+        quickSort(arr, low, pi - 1, m);
+        quickSort(arr, pi + 1, high, m);
+    }
+}
+
 
 void heapify(vector<int> &arr, int n, int i, Metrics &m)
 {
@@ -200,9 +201,9 @@ int main()
         Metrics qsBasicM;
         runM.comparisons = 0;
         runM.swaps = 0;
-        auto start = chrono::high_resolution_clock::now();
+        start = chrono::high_resolution_clock::now();
         quickSort(testArr, 0, testArr.size() - 1, qsBasicM); 
-        auto end = chrono::high_resolution_clock::now();
+        end = chrono::high_resolution_clock::now();
         totalTimeHeap += chrono::duration<double>(end - start).count();
         totalHeap.comparisons += runM.comparisons;
         totalHeap.swaps += runM.swaps;
