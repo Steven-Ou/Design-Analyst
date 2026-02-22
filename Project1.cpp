@@ -220,8 +220,8 @@ int main()
         heapSort(testArr, runM);
         end = chrono::high_resolution_clock::now();
         totalTimeHeap += chrono::duration<double>(end - start).count();
-        totalHeap.comparisons += runM.comparisons;
-        totalHeap.swaps += runM.swaps;
+        double timeTaken = chrono::duration<double>(end-start).count();
+        heapStats.update(timeTaken, runM.comparisons, runM.swaps);
 
         // Quick sort
         testArr = baseArray;
