@@ -15,7 +15,11 @@ struct Stats{
     double totalTime = 0, minTime = 999999.0, maxTime = 0;
     long long totalComp = 0, minComp = 9999999999, maxComp = 0;
     long long totalSwaps = 0, minSwaps = 9999999999, maxSwaps = 0;
-}
+
+    void update(double time,  long long comp, long long swaps){
+        
+    }
+};
 void generateRandomArray(vector<int> &arr, int size)
 {
     random_device rd;
