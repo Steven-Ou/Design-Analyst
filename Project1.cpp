@@ -238,5 +238,7 @@ int main()
         cout << "  Time:        " << totalTimeQSProt / numRuns << " seconds" << endl;
         cout << "  Comparisons: " << totalQSProt.comparisons / numRuns << endl;
         cout << "  Swaps:       " << totalQSProt.swaps / numRuns << endl;
+
+        return 0; 
     }
 }
