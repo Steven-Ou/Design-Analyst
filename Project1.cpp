@@ -19,20 +19,26 @@ struct Stats
 
     void update(double time, long long comp, long long swaps)
     {
-        //accumulate totals for average
+        // accumulate totals for average
         totalTime += time;
         totalComp += comp;
         totalSwaps += swaps;
 
-        //Check for minimums
-        if (time < minTime) minTime = time;
-        if (comp < minComp) minComp = comp;
-        if (swaps < minSwaps) minSwaps = swaps;
+        // Check for minimums
+        if (time < minTime)
+            minTime = time;
+        if (comp < minComp)
+            minComp = comp;
+        if (swaps < minSwaps)
+            minSwaps = swaps;
 
-        //Check for maximum
-        if (time > maxTime) maxTime = time;
-        if (comp > maxComp) maxComp = comp;
-        if (swaps > maxSwaps) maxSwaps = swaps;
+        // Check for maximum
+        if (time > maxTime)
+            maxTime = time;
+        if (comp > maxComp)
+            maxComp = comp;
+        if (swaps > maxSwaps)
+            maxSwaps = swaps;
     }
 };
 void generateRandomArray(vector<int> &arr, int size)
@@ -185,11 +191,11 @@ void heapSort(vector<int> &arr, Metrics &m)
 }
 int main()
 {
-    const int numRuns = 100;
+    const int numRuns = 1000;
     const int arraySize = 10000;
 
     // Accumulators for average
-    Metrics totalInsert, totalHeap, totalQSBasic, totalQSProt;
+    Stats insertStats, heapStats, qsBasicStats, qsProtStats;
     double totalTimeInsert = 0, totalTimeHeap = 0, totalTimeQSBasic = 0, totalTimeQSProt = 0;
 
     for (int i = 0; i < numRuns; i++)
