@@ -19,6 +19,7 @@ struct Stats
 
     void update(double time, long long comp, long long swaps)
     {
+        //accumulate totals for average
         totalTime += time;
         totalComp += comp;
         totalSwaps += swaps;
