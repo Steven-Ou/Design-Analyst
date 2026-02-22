@@ -169,7 +169,8 @@ int main()
     Metrics totalInsert, totalHeap, totalQSBasic, totalQSProt;
     double totalTimeInsert = 0, totalTimeHeap = 0, totalTimeQSBasic = 0, totalTimeQSProt = 0;
 
-    for(int i =0; i<numRums; i++){
-        
+    for(int i =0; i<numRuns; i++){
+        vector<int> baseArray;
+        generateRandomArray(baseArray, arraySize);
     }
 }
