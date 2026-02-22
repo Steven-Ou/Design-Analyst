@@ -229,9 +229,8 @@ int main()
         start = chrono::high_resolution_clock::now();
         quickSort(testArr, 0, testArr.size() - 1, qsBasicM);
         end = chrono::high_resolution_clock::now();
-        totalTimeHeap += chrono::duration<double>(end - start).count();
-        totalHeap.comparisons += runM.comparisons;
-        totalHeap.swaps += runM.swaps;
+        double timeTaken = chrono::duration<double>(end-start).count();
+        qsBasicStats.update(timeTaken, runM.comparisons, runM.swaps);
 
         // Protected quicksort test
         testArr = baseArray;
