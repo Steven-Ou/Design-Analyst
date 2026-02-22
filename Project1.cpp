@@ -124,7 +124,6 @@ void quickSort(vector<int> &arr, int low, int high, Metrics &m)
     }
 }
 
-
 void heapify(vector<int> &arr, int n, int i, Metrics &m)
 {
     int largest = i;
@@ -196,19 +195,19 @@ int main()
         totalHeap.comparisons += runM.comparisons;
         totalHeap.swaps += runM.swaps;
 
-        //Quick sort
+        // Quick sort
         testArr = baseArray;
         Metrics qsBasicM;
         runM.comparisons = 0;
         runM.swaps = 0;
         start = chrono::high_resolution_clock::now();
-        quickSort(testArr, 0, testArr.size() - 1, qsBasicM); 
+        quickSort(testArr, 0, testArr.size() - 1, qsBasicM);
         end = chrono::high_resolution_clock::now();
         totalTimeHeap += chrono::duration<double>(end - start).count();
         totalHeap.comparisons += runM.comparisons;
         totalHeap.swaps += runM.swaps;
 
-        //Protected quicksort test
+        // Protected quicksort test
         testArr = baseArray;
         Metrics qsProtM; // Fresh struct
         start = chrono::high_resolution_clock::now();
@@ -219,5 +218,10 @@ int main()
         totalQSProt.swaps += qsProtM.swaps;
 
         cout << "\n=== FINAL AVERAGES OVER " << numRuns << " RUNS ===" << endl;
+
+        cout << "\nInsertion Sort:" << endl;
+        cout << "  Time:        " << totalTimeInsert / numRuns << " seconds" << endl;
+        cout << "  Comparisons: " << totalInsert.comparisons / numRuns << endl;
+        cout << "  Swaps:       " << totalInsert.swaps / numRuns << endl;
     }
 }
