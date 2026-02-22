@@ -97,7 +97,14 @@ int partition(vector<int> &arr, int low, int high, Metrics &m)
     m.swaps++;
     return i + 1;
 }
-
+// randomized to prevent worst case O(n^2)
+int Protectedpartition(vector<int> &arr, int low, int high, Metrics &m)
+{
+    int randomIdx = low + rand() % (high - low + 1);
+    swap(arr[randomIdx], arr[high]);
+    m.swaps++;
+    return partition(arr, low, high, m);
+}
 void quickSort(vector<int> &arr, int low, int high, Metrics &m)
 {
     if (low < high)
@@ -116,14 +123,7 @@ void protectedQuickSort(vector<int> &arr, int low, int high, Metrics &m)
         protectedQuickSort(arr, pi + 1, high, m);
     }
 }
-// randomized to prevent worst case O(n^2)
-int Protectedpartition(vector<int> &arr, int low, int high, Metrics &m)
-{
-    int randomIdx = low + rand() % (high - low + 1);
-    swap(arr[randomIdx], arr[high]);
-    m.swaps++;
-    return partition(arr, low, high, m);
-}
+
 void heapify(vector<int> &arr, int n, int i, Metrics &m)
 {
     int largest = i;
