@@ -11,13 +11,17 @@ struct Metrics
     long long comparisons = 0;
     long long swaps = 0;
 };
-struct Stats{
+struct Stats
+{
     double totalTime = 0, minTime = 999999.0, maxTime = 0;
     long long totalComp = 0, minComp = 9999999999, maxComp = 0;
     long long totalSwaps = 0, minSwaps = 9999999999, maxSwaps = 0;
 
-    void update(double time,  long long comp, long long swaps){
-        
+    void update(double time, long long comp, long long swaps)
+    {
+        totalTime += time;
+        totalComp += comp;
+        totalSwaps += swaps;
     }
 };
 void generateRandomArray(vector<int> &arr, int size)
@@ -245,6 +249,6 @@ int main()
         cout << "  Comparisons: " << totalQSProt.comparisons / numRuns << endl;
         cout << "  Swaps:       " << totalQSProt.swaps / numRuns << endl;
 
-        return 0; 
+        return 0;
     }
 }
