@@ -168,4 +168,8 @@ int main()
     //Accumulators for average
     Metrics totalInsert, totalHeap, totalQSBasic, totalQSProt;
     double totalTimeInsert = 0, totalTimeHeap = 0, totalTimeQSBasic = 0, totalTimeQSProt = 0;
+
+    for(int i =0; i<numRums; i++){
+        
+    }
 }
