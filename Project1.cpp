@@ -162,18 +162,19 @@ void heapSort(vector<int> &arr, Metrics &m)
 }
 int main()
 {
-    const int numRuns =100;
-    const int arraySize= 10000;
+    const int numRuns = 100;
+    const int arraySize = 10000;
 
-    //Accumulators for average
+    // Accumulators for average
     Metrics totalInsert, totalHeap, totalQSBasic, totalQSProt;
     double totalTimeInsert = 0, totalTimeHeap = 0, totalTimeQSBasic = 0, totalTimeQSProt = 0;
 
-    for(int i =0; i<numRuns; i++){
+    for (int i = 0; i < numRuns; i++)
+    {
         vector<int> baseArray;
         generateRandomArray(baseArray, arraySize);
 
-        //Insertion sort 
+        // Insertion sort
         vector<int> testArr = baseArray;
         Metrics runM;
         auto start = chrono::high_resolution_clock::now();
@@ -183,9 +184,10 @@ int main()
         totalInsert.comparisons += runM.comparisons;
         totalInsert.swaps += runM.swaps;
 
-        //Heap Sort 
+        // Heap Sort
         testArr = baseArray;
-        runM = {0, 0};
+        runM.comparisons = 0;
+        runM.swaps = 0;
         start = chrono::high_resolution_clock::now();
         heapSort(testArr, runM);
         end = chrono::high_resolution_clock::now();
