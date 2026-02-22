@@ -172,5 +172,15 @@ int main()
     for(int i =0; i<numRuns; i++){
         vector<int> baseArray;
         generateRandomArray(baseArray, arraySize);
+
+        //Insertion sort 
+        vector<int> testArr = baseArray;
+        Metrics runM;
+        auto start = chrono::high_resolution_clock::now();
+        insertionSort(testArr, runM);
+        auto end = chrono::high_resolution_clock::now();
+        totalTimeInsert += chrono::duration<double>(end - start).count();
+        totalInsert.comparisons += runM.comparisons;
+        totalInsert.swaps += runM.swaps;
     }
 }
