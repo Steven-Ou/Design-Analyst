@@ -198,8 +198,6 @@ int main()
         // Quick sort
         testArr = baseArray;
         Metrics qsBasicM;
-        runM.comparisons = 0;
-        runM.swaps = 0;
         start = chrono::high_resolution_clock::now();
         quickSort(testArr, 0, testArr.size() - 1, qsBasicM);
         end = chrono::high_resolution_clock::now();
