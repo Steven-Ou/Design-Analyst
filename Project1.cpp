@@ -195,6 +195,7 @@ int main()
         totalHeap.comparisons += runM.comparisons;
         totalHeap.swaps += runM.swaps;
 
+        //Quick sort
         testArr = baseArray;
         Metrics qsBasicM;
         runM.comparisons = 0;
