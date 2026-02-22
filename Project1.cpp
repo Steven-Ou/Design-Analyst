@@ -206,5 +206,15 @@ int main()
         totalTimeHeap += chrono::duration<double>(end - start).count();
         totalHeap.comparisons += runM.comparisons;
         totalHeap.swaps += runM.swaps;
+
+
+        testArr = baseArray;
+        Metrics qsProtM; // Fresh struct
+        start = chrono::high_resolution_clock::now();
+        protectedQuickSort(testArr, 0, testArr.size() - 1, qsProtM);
+        end = chrono::high_resolution_clock::now();
+        totalTimeQSProt += chrono::duration<double>(end - start).count();
+        totalQSProt.comparisons += qsProtM.comparisons;
+        totalQSProt.swaps += qsProtM.swaps;
     }
 }
