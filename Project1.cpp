@@ -28,6 +28,11 @@ struct Stats
         if (time < minTime) minTime = time;
         if (comp < minComp) minComp = comp;
         if (swaps < minSwaps) minSwaps = swaps;
+
+        //Check for maximum
+        if (time > maxTime) maxTime = time;
+        if (comp > maxComp) maxComp = comp;
+        if (swaps > maxSwaps) maxSwaps = swaps;
     }
 };
 void generateRandomArray(vector<int> &arr, int size)
