@@ -245,13 +245,13 @@ int main()
 
         cout << "\nInsertion Sort:" << endl;
         cout << "  Time:        " << totalTimeInsert / numRuns << " seconds" << endl;
-        cout << "  Comparisons: " << totalInsert.comparisons / numRuns << endl;
-        cout << "  Swaps:       " << totalInsert.swaps / numRuns << endl;
+        cout << "  Comparisons: " << insertStats.totalComp / numRuns << endl;
+        cout << "  Swaps:       " << insertStats.totalTime / numRuns << endl;
 
         cout << "\nHeap Sort:" << endl;
         cout << "  Time:        " << totalTimeHeap / numRuns << " seconds" << endl;
-        cout << "  Comparisons: " << totalHeap.comparisons / numRuns << endl;
-        cout << "  Swaps:       " << totalHeap.swaps / numRuns << endl;
+        cout << "  Comparisons: " << heapStats.totalComp / numRuns << endl;
+        cout << "  Swaps:       " << heapStats.totalTime / numRuns << endl;
 
         cout << "\nQuickSort (Basic):" << endl;
         cout << "  Time:        " << totalTimeQSBasic / numRuns << " seconds" << endl;
