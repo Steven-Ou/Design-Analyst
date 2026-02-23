@@ -369,5 +369,8 @@ int main()
     cout << "Running QuickSort (Basic) on sorted 100k array... (Warning: This might crash or freeze!)" << endl;
     auto startQ = chrono::high_resolution_clock::now();
 
+    quickSort(testQS, 0, testQS.size() - 1, qsM2);
+
+    
     return 0;
 }
