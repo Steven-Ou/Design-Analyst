@@ -17,10 +17,11 @@ struct Stats
     long long totalComp = 0, minComp = 9999999999, maxComp = 0;
     long long totalSwaps = 0, minSwaps = 9999999999, maxSwaps = 0;
 
+    //Vectors to store every single run's data for the Frequency Distribution
     vector<double> times;
     vector<long long> comps;
     vector<long long> swaps;
-    
+
     void update(double time, long long comp, long long swaps)
     {
         // accumulate totals for average
