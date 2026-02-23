@@ -44,6 +44,11 @@ struct Stats
             maxComp = comp;
         if (swaps > maxSwaps)
             maxSwaps = swaps;
+        
+        //Save the data from this run into our counting arrays
+        times.push_back(time);
+        comps.push_back(comp);
+        this->swaps.push_back(swaps);
     }
 };
 void generateRandomArray(vector<int> &arr, int size)
