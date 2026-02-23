@@ -209,41 +209,51 @@ void heapSort(vector<int> &arr, Metrics &m)
         heapify(arr, i, 0, m);
     }
 }
-//Creating the function to print 10 buckets for time
-void printTimeFrequency(const vector<double>& data, double minVal, double maxVal) {
+// Creating the function to print 10 buckets for time
+void printTimeFrequency(const vector<double> &data, double minVal, double maxVal)
+{
     int numBins = 10;
     vector<int> bins(numBins, 0);
     double range = maxVal - minVal;
-    if (range == 0) range = 1; 
+    if (range == 0)
+        range = 1;
     double binSize = range / numBins;
 
-    for (double val : data) {
+    for (double val : data)
+    {
         int index = (val - minVal) / binSize;
-        if (index >= numBins) index = numBins - 1; // Catch the absolute max value
+        if (index >= numBins)
+            index = numBins - 1; // Catch the absolute max value
         bins[index]++;
     }
 
-    for (int i = 0; i < numBins; i++) {
+    for (int i = 0; i < numBins; i++)
+    {
         double binStart = minVal + i * binSize;
         double binEnd = binStart + binSize;
         cout << "    [" << fixed << setprecision(5) << binStart << " - " << binEnd << "s]: " << bins[i] << " runs" << endl;
     }
 }
-//Creating the function to rint 10 buckets for comparison/swaps
-void printLongFrequency(const vector<long long>& data, long long minVal, long long maxVal) {
+// Creating the function to rint 10 buckets for comparison/swaps
+void printLongFrequency(const vector<long long> &data, long long minVal, long long maxVal)
+{
     int numBins = 10;
     vector<int> bins(numBins, 0);
     double range = (double)(maxVal - minVal);
-    if (range == 0) range = 1;
+    if (range == 0)
+        range = 1;
     double binSize = range / numBins;
 
-    for (long long val : data) {
+    for (long long val : data)
+    {
         int index = (val - minVal) / binSize;
-        if (index >= numBins) index = numBins - 1;
+        if (index >= numBins)
+            index = numBins - 1;
         bins[index]++;
     }
 
-    for (int i = 0; i < numBins; i++) {
+    for (int i = 0; i < numBins; i++)
+    {
         long long binStart = minVal + (long long)(i * binSize);
         long long binEnd = (i == numBins - 1) ? maxVal : minVal + (long long)((i + 1) * binSize);
         cout << "    [" << binStart << " - " << binEnd << "]: " << bins[i] << " runs" << endl;
@@ -258,6 +268,7 @@ int main()
     // Accumulators for average
     Stats insertStats, heapStats, qsBasicStats, qsProtStats;
     double totalTimeInsert = 0, totalTimeHeap = 0, totalTimeQSBasic = 0, totalTimeQSProt = 0;
+    cout << "Running 1,000 sorts of size 10,000. Please wait..." << endl;
 
     for (int i = 0; i < numRuns; i++)
     {
@@ -327,13 +338,12 @@ int main()
     cout << "\n=== FREQUENCY DISTRIBUTION (QuickSort Protected) ===" << endl;
     cout << "Time Distribution:" << endl;
     printTimeFrequency(qsProtStats.times, qsProtStats.minTime, qsProtStats.maxTime);
-    
+
     cout << "\nComparisons Distribution:" << endl;
     printLongFrequency(qsProtStats.comps, qsProtStats.minComp, qsProtStats.maxComp);
-    
+
     cout << "\nSwaps Distribution:" << endl;
     printLongFrequency(qsProtStats.swaps, qsProtStats.minSwaps, qsProtStats.maxSwaps);
-
 
     return 0;
 }
