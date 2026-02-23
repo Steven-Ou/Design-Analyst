@@ -244,24 +244,24 @@ int main()
     cout << "\n=== FINAL AVERAGES OVER " << numRuns << " RUNS ===" << endl;
 
     cout << "\nInsertion Sort:" << endl;
-    cout << "  Time:        " << totalTimeInsert / numRuns << " seconds" << endl;
-    cout << "  Comparisons: " << insertStats.totalComp / numRuns << endl;
-    cout << "  Swaps:       " << insertStats.totalTime / numRuns << endl;
+    cout << "  Avg Time:  " << insertStats.totalTime / numRuns << "s (Min: " << insertStats.minTime << "s, Max: " << insertStats.maxTime << "s)" << endl;
+    cout << "  Avg Comp:  " << insertStats.totalComp / numRuns << " (Min: " << insertStats.minComp << ", Max: " << insertStats.maxComp << ")" << endl;
+    cout << "  Avg Swaps: " << insertStats.totalSwaps / numRuns << " (Min: " << insertStats.minSwaps << ", Max: " << insertStats.maxSwaps << ")" << endl;
 
     cout << "\nHeap Sort:" << endl;
-    cout << "  Time:        " << totalTimeHeap / numRuns << " seconds" << endl;
-    cout << "  Comparisons: " << heapStats.totalComp / numRuns << endl;
-    cout << "  Swaps:       " << heapStats.totalTime / numRuns << endl;
+    cout << "  Avg Time:  " << heapStats.totalTime / numRuns << "s (Min: " << heapStats.minTime << "s, Max: " << heapStats.maxTime << "s)" << endl;
+    cout << "  Avg Comp:  " << heapStats.totalComp / numRuns << " (Min: " << heapStats.minComp << ", Max: " << heapStats.maxComp << ")" << endl;
+    cout << "  Avg Swaps: " << heapStats.totalSwaps / numRuns << " (Min: " << heapStats.minSwaps << ", Max: " << heapStats.maxSwaps << ")" << endl;
 
     cout << "\nQuickSort (Basic):" << endl;
-    cout << "  Time:        " << totalTimeQSBasic / numRuns << " seconds" << endl;
-    cout << "  Comparisons: " << totalQSBasic.comparisons / numRuns << endl;
-    cout << "  Swaps:       " << totalQSBasic.swaps / numRuns << endl;
+    cout << "  Avg Time:  " << qsBasicStats.totalTime / numRuns << "s (Min: " << qsBasicStats.minTime << "s, Max: " << qsBasicStats.maxTime << "s)" << endl;
+    cout << "  Avg Comp:  " << qsBasicStats.totalComp / numRuns << " (Min: " << qsBasicStats.minComp << ", Max: " << qsBasicStats.maxComp << ")" << endl;
+    cout << "  Avg Swaps: " << qsBasicStats.totalSwaps / numRuns << " (Min: " << qsBasicStats.minSwaps << ", Max: " << qsBasicStats.maxSwaps << ")" << endl;
 
     cout << "\nQuickSort (Protected):" << endl;
-    cout << "  Time:        " << totalTimeQSProt / numRuns << " seconds" << endl;
-    cout << "  Comparisons: " << totalQSProt.comparisons / numRuns << endl;
-    cout << "  Swaps:       " << totalQSProt.swaps / numRuns << endl;
+    cout << "  Avg Time:  " << qsProtStats.totalTime / numRuns << "s (Min: " << qsProtStats.minTime << "s, Max: " << qsProtStats.maxTime << "s)" << endl;
+    cout << "  Avg Comp:  " << qsProtStats.totalComp / numRuns << " (Min: " << qsProtStats.minComp << ", Max: " << qsProtStats.maxComp << ")" << endl;
+    cout << "  Avg Swaps: " << qsProtStats.totalSwaps / numRuns << " (Min: " << qsProtStats.minSwaps << ", Max: " << qsProtStats.maxSwaps << ")" << endl;
 
     return 0;
 }
