@@ -209,7 +209,7 @@ void heapSort(vector<int> &arr, Metrics &m)
         heapify(arr, i, 0, m);
     }
 }
-
+//Creating the function to print 10 buckets for time
 void printTimeFrequency(const vector<double>& data, double minVal, double maxVal) {
     int numBins = 10;
     vector<int> bins(numBins, 0);
@@ -229,7 +229,7 @@ void printTimeFrequency(const vector<double>& data, double minVal, double maxVal
         cout << "    [" << fixed << setprecision(5) << binStart << " - " << binEnd << "s]: " << bins[i] << " runs" << endl;
     }
 }
-
+//Creating the function to rint 10 buckets for comparison/swaps
 void printLongFrequency(const vector<long long>& data, long long minVal, long long maxVal) {
     int numBins = 10;
     vector<int> bins(numBins, 0);
@@ -323,6 +323,17 @@ int main()
     cout << "  Avg Time:  " << qsProtStats.totalTime / numRuns << "s (Min: " << qsProtStats.minTime << "s, Max: " << qsProtStats.maxTime << "s)" << endl;
     cout << "  Avg Comp:  " << qsProtStats.totalComp / numRuns << " (Min: " << qsProtStats.minComp << ", Max: " << qsProtStats.maxComp << ")" << endl;
     cout << "  Avg Swaps: " << qsProtStats.totalSwaps / numRuns << " (Min: " << qsProtStats.minSwaps << ", Max: " << qsProtStats.maxSwaps << ")" << endl;
+
+    cout << "\n=== FREQUENCY DISTRIBUTION (QuickSort Protected) ===" << endl;
+    cout << "Time Distribution:" << endl;
+    printTimeFrequency(qsProtStats.times, qsProtStats.minTime, qsProtStats.maxTime);
+    
+    cout << "\nComparisons Distribution:" << endl;
+    printLongFrequency(qsProtStats.comps, qsProtStats.minComp, qsProtStats.maxComp);
+    
+    cout << "\nSwaps Distribution:" << endl;
+    printLongFrequency(qsProtStats.swaps, qsProtStats.minSwaps, qsProtStats.maxSwaps);
+
 
     return 0;
 }
