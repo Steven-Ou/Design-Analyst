@@ -11,13 +11,14 @@ struct Metrics
     long long comparisons = 0;
     long long swaps = 0;
 };
+
 struct Stats
 {
     double totalTime = 0, minTime = 999999.0, maxTime = 0;
     long long totalComp = 0, minComp = 9999999999, maxComp = 0;
     long long totalSwaps = 0, minSwaps = 9999999999, maxSwaps = 0;
 
-    //Vectors to store every single run's data for the Frequency Distribution
+    // Vectors to store every single run's data for the Frequency Distribution
     vector<double> times;
     vector<long long> comps;
     vector<long long> swaps;
@@ -44,13 +45,14 @@ struct Stats
             maxComp = comp;
         if (swaps > maxSwaps)
             maxSwaps = swaps;
-        
-        //Save the data from this run into our counting arrays
+
+        // Save the data from this run into our counting arrays
         times.push_back(time);
         comps.push_back(comp);
         this->swaps.push_back(swaps);
     }
 };
+
 void generateRandomArray(vector<int> &arr, int size)
 {
     random_device rd;
@@ -62,6 +64,7 @@ void generateRandomArray(vector<int> &arr, int size)
         arr.push_back(dis(gen));
     }
 }
+
 void insertionSort(vector<int> &arr, Metrics &m)
 {
     int n = arr.size();
@@ -84,6 +87,7 @@ void insertionSort(vector<int> &arr, Metrics &m)
         arr[j + 1] = key;
     }
 }
+
 void merge(vector<int> &arr, int l, int m, int r)
 {
     int n1 = m - l + 1;
@@ -107,6 +111,7 @@ void merge(vector<int> &arr, int l, int m, int r)
     while (j < n2)
         arr[k++] = R[j++];
 }
+
 void mergeSort(vector<int> &arr, int l, int r)
 {
     if (l < r)
@@ -117,6 +122,7 @@ void mergeSort(vector<int> &arr, int l, int r)
         merge(arr, l, m, r);
     }
 }
+
 // regular partition - using fixed pivot
 int partition(vector<int> &arr, int low, int high, Metrics &m)
 {
@@ -136,6 +142,7 @@ int partition(vector<int> &arr, int low, int high, Metrics &m)
     m.swaps++;
     return i + 1;
 }
+
 // randomized to prevent worst case O(n^2)
 int Protectedpartition(vector<int> &arr, int low, int high, Metrics &m)
 {
@@ -144,6 +151,7 @@ int Protectedpartition(vector<int> &arr, int low, int high, Metrics &m)
     m.swaps++;
     return partition(arr, low, high, m);
 }
+
 void protectedQuickSort(vector<int> &arr, int low, int high, Metrics &m)
 {
     if (low < high)
@@ -153,6 +161,7 @@ void protectedQuickSort(vector<int> &arr, int low, int high, Metrics &m)
         protectedQuickSort(arr, pi + 1, high, m);
     }
 }
+
 void quickSort(vector<int> &arr, int low, int high, Metrics &m)
 {
     if (low < high)
@@ -187,6 +196,7 @@ void heapify(vector<int> &arr, int n, int i, Metrics &m)
         heapify(arr, n, largest, m);
     }
 }
+
 void heapSort(vector<int> &arr, Metrics &m)
 {
     int n = arr.size();
@@ -199,6 +209,28 @@ void heapSort(vector<int> &arr, Metrics &m)
         heapify(arr, i, 0, m);
     }
 }
+
+void printTimeFrequency(const vector<double>& data, double minVal, double maxVal) {
+    int numBins = 10;
+    vector<int> bins(numBins, 0);
+    double range = maxVal - minVal;
+    if (range == 0) range = 1; 
+    double binSize = range / numBins;
+
+    for (double val : data) {
+        int index = (val - minVal) / binSize;
+        if (index >= numBins) index = numBins - 1; // Catch the absolute max value
+        bins[index]++;
+    }
+
+    for (int i = 0; i < numBins; i++) {
+        double binStart = minVal + i * binSize;
+        double binEnd = binStart + binSize;
+        cout << "    [" << fixed << setprecision(5) << binStart << " - " << binEnd << "s]: " << bins[i] << " runs" << endl;
+    }
+}
+
+
 int main()
 {
     const int numRuns = 1000;
