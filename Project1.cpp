@@ -230,7 +230,7 @@ int main()
         quickSort(testArr, 0, testArr.size() - 1, qsBasicM);
         end = chrono::high_resolution_clock::now();
         timeTaken = chrono::duration<double>(end - start).count();
-        qsBasicStats.update(timeTaken, runM.comparisons, runM.swaps);
+        qsBasicStats.update(timeTaken, qsBasicM.comparisons, qsBasicM.swaps);
 
         // Protected quicksort test
         testArr = baseArray;
@@ -239,7 +239,7 @@ int main()
         protectedQuickSort(testArr, 0, testArr.size() - 1, qsProtM);
         end = chrono::high_resolution_clock::now();
         timeTaken = chrono::duration<double>(end - start).count();
-        qsProtStats.update(timeTaken, runM.comparisons, runM.swaps);
+        qsProtStats.update(timeTaken, qsProtM.comparisons, qsProtM.swaps);
     }
     cout << "\n=== FINAL AVERAGES OVER " << numRuns << " RUNS ===" << endl;
 
