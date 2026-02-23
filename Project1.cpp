@@ -345,5 +345,9 @@ int main()
     cout << "\nSwaps Distribution:" << endl;
     printLongFrequency(qsProtStats.swaps, qsProtStats.minSwaps, qsProtStats.maxSwaps);
 
+
+    cout << "\n=== SPECIAL TEST: SORTED ARRAY OF SIZE 100,000 ===" << endl;
+
+    
     return 0;
 }
