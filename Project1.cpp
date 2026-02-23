@@ -354,6 +354,7 @@ int main()
         sortedArray[i] = i + 1;
     }
 
+    //running heap sort on the sorted array
     vector<int> testHeap = sortedArray;
     Metrics heapM2;
     cout << "Running Heap Sort on sorted 100k array..." << endl;
@@ -362,5 +363,10 @@ int main()
     auto endH = chrono::high_resolution_clock::now();
     cout << "  -> Heap Sort finished in: " << chrono::duration<double>(endH - startH).count() << "s" << endl;
 
+    vector<int> testQS = sortedArray;
+    Metrics qsM2;
+    cout << "Running QuickSort (Basic) on sorted 100k array... (Warning: This might crash or freeze!)" << endl;
+    auto startQ = chrono::high_resolution_clock::now();
+    
     return 0;
 }
