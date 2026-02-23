@@ -220,7 +220,7 @@ int main()
         heapSort(testArr, runM);
         end = chrono::high_resolution_clock::now();
         totalTimeHeap += chrono::duration<double>(end - start).count();
-        double timeTaken = chrono::duration<double>(end-start).count();
+        timeTaken = chrono::duration<double>(end - start).count();
         heapStats.update(timeTaken, runM.comparisons, runM.swaps);
 
         // Quick sort
@@ -229,7 +229,7 @@ int main()
         start = chrono::high_resolution_clock::now();
         quickSort(testArr, 0, testArr.size() - 1, qsBasicM);
         end = chrono::high_resolution_clock::now();
-        double timeTaken = chrono::duration<double>(end-start).count();
+        timeTaken = chrono::duration<double>(end - start).count();
         qsBasicStats.update(timeTaken, runM.comparisons, runM.swaps);
 
         // Protected quicksort test
@@ -238,31 +238,30 @@ int main()
         start = chrono::high_resolution_clock::now();
         protectedQuickSort(testArr, 0, testArr.size() - 1, qsProtM);
         end = chrono::high_resolution_clock::now();
-        double timeTaken = chrono::duration<double>(end-start).count();
+        timeTaken = chrono::duration<double>(end - start).count();
         qsProtStats.update(timeTaken, runM.comparisons, runM.swaps);
-
-        cout << "\n=== FINAL AVERAGES OVER " << numRuns << " RUNS ===" << endl;
-
-        cout << "\nInsertion Sort:" << endl;
-        cout << "  Time:        " << totalTimeInsert / numRuns << " seconds" << endl;
-        cout << "  Comparisons: " << insertStats.totalComp / numRuns << endl;
-        cout << "  Swaps:       " << insertStats.totalTime / numRuns << endl;
-
-        cout << "\nHeap Sort:" << endl;
-        cout << "  Time:        " << totalTimeHeap / numRuns << " seconds" << endl;
-        cout << "  Comparisons: " << heapStats.totalComp / numRuns << endl;
-        cout << "  Swaps:       " << heapStats.totalTime / numRuns << endl;
-
-        cout << "\nQuickSort (Basic):" << endl;
-        cout << "  Time:        " << totalTimeQSBasic / numRuns << " seconds" << endl;
-        cout << "  Comparisons: " << totalQSBasic.comparisons / numRuns << endl;
-        cout << "  Swaps:       " << totalQSBasic.swaps / numRuns << endl;
-
-        cout << "\nQuickSort (Protected):" << endl;
-        cout << "  Time:        " << totalTimeQSProt / numRuns << " seconds" << endl;
-        cout << "  Comparisons: " << totalQSProt.comparisons / numRuns << endl;
-        cout << "  Swaps:       " << totalQSProt.swaps / numRuns << endl;
-
-        return 0;
     }
+    cout << "\n=== FINAL AVERAGES OVER " << numRuns << " RUNS ===" << endl;
+
+    cout << "\nInsertion Sort:" << endl;
+    cout << "  Time:        " << totalTimeInsert / numRuns << " seconds" << endl;
+    cout << "  Comparisons: " << insertStats.totalComp / numRuns << endl;
+    cout << "  Swaps:       " << insertStats.totalTime / numRuns << endl;
+
+    cout << "\nHeap Sort:" << endl;
+    cout << "  Time:        " << totalTimeHeap / numRuns << " seconds" << endl;
+    cout << "  Comparisons: " << heapStats.totalComp / numRuns << endl;
+    cout << "  Swaps:       " << heapStats.totalTime / numRuns << endl;
+
+    cout << "\nQuickSort (Basic):" << endl;
+    cout << "  Time:        " << totalTimeQSBasic / numRuns << " seconds" << endl;
+    cout << "  Comparisons: " << totalQSBasic.comparisons / numRuns << endl;
+    cout << "  Swaps:       " << totalQSBasic.swaps / numRuns << endl;
+
+    cout << "\nQuickSort (Protected):" << endl;
+    cout << "  Time:        " << totalTimeQSProt / numRuns << " seconds" << endl;
+    cout << "  Comparisons: " << totalQSProt.comparisons / numRuns << endl;
+    cout << "  Swaps:       " << totalQSProt.swaps / numRuns << endl;
+
+    return 0;
 }
