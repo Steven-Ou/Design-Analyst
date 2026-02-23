@@ -347,7 +347,11 @@ int main()
 
 
     cout << "\n=== SPECIAL TEST: SORTED ARRAY OF SIZE 100,000 ===" << endl;
-
     
+    vector<int> sortedArray(100000);
+    for(int i = 0; i < 100000; i++) {
+        sortedArray[i] = i + 1; 
+    }
+
     return 0;
 }
