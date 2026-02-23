@@ -345,13 +345,22 @@ int main()
     cout << "\nSwaps Distribution:" << endl;
     printLongFrequency(qsProtStats.swaps, qsProtStats.minSwaps, qsProtStats.maxSwaps);
 
-
     cout << "\n=== SPECIAL TEST: SORTED ARRAY OF SIZE 100,000 ===" << endl;
-    
+
+    // Creating a manually sorted array of 100000 numbers
     vector<int> sortedArray(100000);
-    for(int i = 0; i < 100000; i++) {
-        sortedArray[i] = i + 1; 
+    for (int i = 0; i < 100000; i++)
+    {
+        sortedArray[i] = i + 1;
     }
+
+    vector<int> testHeap = sortedArray;
+    Metrics heapM2;
+    cout << "Running Heap Sort on sorted 100k array..." << endl;
+    auto startH = chrono::high_resolution_clock::now();
+    heapSort(testHeap, heapM2);
+    auto endH = chrono::high_resolution_clock::now();
+    cout << "  -> Heap Sort finished in: " << chrono::duration<double>(endH - startH).count() << "s" << endl;
 
     return 0;
 }
