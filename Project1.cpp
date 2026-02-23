@@ -230,6 +230,25 @@ void printTimeFrequency(const vector<double>& data, double minVal, double maxVal
     }
 }
 
+void printLongFrequency(const vector<long long>& data, long long minVal, long long maxVal) {
+    int numBins = 10;
+    vector<int> bins(numBins, 0);
+    double range = (double)(maxVal - minVal);
+    if (range == 0) range = 1;
+    double binSize = range / numBins;
+
+    for (long long val : data) {
+        int index = (val - minVal) / binSize;
+        if (index >= numBins) index = numBins - 1;
+        bins[index]++;
+    }
+
+    for (int i = 0; i < numBins; i++) {
+        long long binStart = minVal + (long long)(i * binSize);
+        long long binEnd = (i == numBins - 1) ? maxVal : minVal + (long long)((i + 1) * binSize);
+        cout << "    [" << binStart << " - " << binEnd << "]: " << bins[i] << " runs" << endl;
+    }
+}
 
 int main()
 {
