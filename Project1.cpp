@@ -363,10 +363,11 @@ int main()
     auto endH = chrono::high_resolution_clock::now();
     cout << "  -> Heap Sort finished in: " << chrono::duration<double>(endH - startH).count() << "s" << endl;
 
+    //running quicksort on the sorted array
     vector<int> testQS = sortedArray;
     Metrics qsM2;
     cout << "Running QuickSort (Basic) on sorted 100k array... (Warning: This might crash or freeze!)" << endl;
     auto startQ = chrono::high_resolution_clock::now();
-    
+
     return 0;
 }
