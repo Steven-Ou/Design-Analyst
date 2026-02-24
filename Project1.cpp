@@ -379,5 +379,11 @@ int main()
     int smallSizes[] = {16, 32, 64, 128, 256};
     int smallRuns = 100;
 
+    cout << left << setw(10) << "Size" 
+         << setw(20) << "Insertion (ns)" 
+         << setw(20) << "Heap (ns)" 
+         << setw(20) << "Quick Basic (ns)" << endl;
+    cout << string(65, '-') << endl;
+
     return 0;
 }
