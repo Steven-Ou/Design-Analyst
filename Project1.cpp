@@ -389,7 +389,10 @@ int main()
         double tInsert=0, tHeap =0, tQS =0; 
 
         for(int i =0; i<smallRuns;i++){
-            
+            vector<int> base;
+            generateRandomArray(base, s);
+            vector<int> test;
+            Metrics m;
         }
     }
 
