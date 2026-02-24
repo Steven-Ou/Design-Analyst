@@ -406,7 +406,11 @@ int main()
             end = chrono::high_resolution_clock::now();
             tHeap += chrono::duration<double, std::nano>(end - start).count();
 
-            
+            test = base;
+            start = chrono::high_resolution_clock::now();
+            quickSort(test, 0, test.size() - 1, m);
+            end = chrono::high_resolution_clock::now();
+            tQS += chrono::duration<double, std::nano>(end - start).count();
         }
     }
 
