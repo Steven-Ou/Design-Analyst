@@ -375,5 +375,9 @@ int main()
     auto endQ = chrono::high_resolution_clock::now();
     cout << "  -> QuickSort finished in: " << chrono::duration<double>(endQ - startQ).count() << "s" << endl;
 
+    cout << "\n=== PART 3: SMALL ARRAYS TEST (100 Runs Each) ===" << endl;
+    int smallSizes[] = {16, 32, 64, 128, 256};
+    int smallRuns = 100;
+
     return 0;
 }
