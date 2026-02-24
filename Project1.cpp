@@ -400,6 +400,12 @@ int main()
             auto end = chrono::high_resolution_clock::now();
             tInsert += chrono::duration<double, std::nano>(end - start).count();
 
+            test = base;
+            start = chrono::high_resolution_clock::now();
+            heapSort(test, m);
+            end = chrono::high_resolution_clock::now();
+            tHeap += chrono::duration<double, std::nano>(end - start).count();
+
             
         }
     }
