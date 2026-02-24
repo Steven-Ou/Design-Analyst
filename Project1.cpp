@@ -411,6 +411,11 @@ int main()
             quickSort(test, 0, test.size() - 1, m);
             end = chrono::high_resolution_clock::now();
             tQS += chrono::duration<double, std::nano>(end - start).count();
+
+            cout << left << setw(10) << s 
+             << setw(20) << (tInsert / smallRuns) 
+             << setw(20) << (tHeap / smallRuns) 
+             << setw(20) << (tQS / smallRuns) << endl;
         }
     }
 
