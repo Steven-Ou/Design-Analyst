@@ -393,6 +393,14 @@ int main()
             generateRandomArray(base, s);
             vector<int> test;
             Metrics m;
+
+            test = base;
+            auto start = chrono::high_resolution_clock::now();
+            insertionSort(test, m);
+            auto end = chrono::high_resolution_clock::now();
+            tInsert += chrono::duration<double, std::nano>(end - start).count();
+
+            
         }
     }
 
