@@ -385,5 +385,13 @@ int main()
          << setw(20) << "Quick Basic (ns)" << endl;
     cout << string(65, '-') << endl;
 
+    for(int s:smallSizes){
+        double tInsert=0, tHeap =0, tQS =0; 
+
+        for(int i =0; i<smallRuns;i++){
+            
+        }
+    }
+
     return 0;
 }
