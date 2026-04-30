@@ -37,6 +37,8 @@ int main()
     int n;
     double winPercent;
     long long multiplications;
+    int attempts = 0;
+    bool validInput = false;
 
     cout << "--- Quidditch World Cup Probability Calculator ---" << endl;
     cout << "Enter the 'best of' number (must be odd, e.g., 9): ";
