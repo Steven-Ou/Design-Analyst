@@ -14,4 +14,8 @@ double calculateWinProbability(int n, double p, long long &multiplications)
     for (int j = 1; j <= W; j++) {
         dp[0][j] = 1.0;
     }
+
+    for (int i = 1; i <= W; i++) {
+        dp[i][0] = 0.0;
+    }
 }
