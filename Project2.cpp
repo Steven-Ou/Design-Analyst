@@ -20,7 +20,7 @@ double calculateWinProbability(int n, double p, long long &multiplications)
     {
         dp[i][0] = 0.0;
     }
-    
+
     for (int i = 1; i <= W; i++)
     {
         for (int j = 1; j <= W; j++)
@@ -31,4 +31,20 @@ double calculateWinProbability(int n, double p, long long &multiplications)
     }
 
     return dp[W][W];
+}
+int main()
+{
+    int n;
+    double winPercent;
+    long long multiplications;
+
+    cout << "--- Quidditch World Cup Probability Calculator ---" << endl;
+    cout << "Enter the 'best of' number (must be odd, e.g., 9): ";
+    cin >> n;
+
+    if (n % 2 == 0)
+    {
+        cout << "Error: n must be an odd number." << endl;
+        return 1;
+    }
 }
