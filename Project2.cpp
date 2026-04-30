@@ -47,4 +47,17 @@ int main()
         cout << "Error: n must be an odd number." << endl;
         return 1;
     }
+
+    cout << "Enter Gryffindor's win percentage (e.g., 51.2): ";
+    cin >> winPercent;
+
+    double p = winPercent / 100.0;
+    double probability = calculateWinProbability(n, p, multiplications);
+
+    cout << fixed << setprecision(4);
+    cout << "\nResults:" << endl;
+    cout << "Probability Gryffindor wins the World Cup: " << probability << endl;
+    cout << "Number of multiplications required: " << multiplications << endl;
+
+    return 0;
 }
