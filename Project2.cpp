@@ -41,15 +41,33 @@ int main()
     bool validInput = false;
 
     cout << "--- Quidditch World Cup Probability Calculator ---" << endl;
-    cout << "Enter the 'best of' number (must be odd, e.g., 9): ";
-    cin >> n;
-
-    if (n % 2 == 0)
-    {
-        cout << "Error: n must be an odd number." << endl;
-        return 1;
+    
+    while (attempts < 3) {
+        cout << "Enter the 'best of' number (must be odd, e.g., 9): ";
+        if (!(cin >> n)) {
+            // Handle non-numeric input
+            cin.clear(); 
+            cin.ignore(1000, '\n');
+            cout << "Invalid input. Please enter a number." << endl;
+        } else if (n % 2 == 0 || n <= 0) {
+            // Handle even or non-positive numbers
+            cout << "Error: n must be a positive odd number." << endl;
+        } else {
+            validInput = true;
+            break; 
+        }
+        
+        attempts++;
+        if (attempts < 3) {
+            cout << "You have " << (3 - attempts) << " tries left." << endl;
+        }
     }
 
+    if (!validInput) {
+        cout << "Too many failed attempts. Exiting program." << endl;
+        return 1;
+    }
+    
     cout << "Enter Gryffindor's win percentage (e.g., 51.2): ";
     cin >> winPercent;
 
